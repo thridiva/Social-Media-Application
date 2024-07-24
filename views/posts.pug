@@ -1,0 +1,39 @@
+extends base
+
+block content
+  .posts-div.container
+    each post in posts
+      .post-div
+        .userCreated-div
+          //- img(src=`${post.userCreated.profilePic}`)
+          .img-user-pic
+            img.post-user-img(src=`${post.userCreated.profilePic}` alt='profile-pic')
+          span(class="post-name")= post.userCreated.name
+          span=`(`
+          //- span(href="/" target="_blank")= `${post.userCreated.userName}`
+          span= `${post.userCreated.userName}`
+          span= `)`
+        .name-div
+          span &#x273A;
+          span= post.name 
+        .description-div
+          span &#128441;
+          span Description:
+          |  
+          span= post.description
+        .more-about-post
+          .div-more-details
+            span &#x1F517; More Details About This Post:
+            a(href=`/post/${post.id}` target="_blank") Click Here
+          //- .date-div
+          //-   - let date = post.dateUploaded.toLocaleString('en-in',{day:"numeric",month:"numeric",year:"numeric"})
+          //-   p(class='post-date')= `- ${date}`
+
+        //TODO
+        //- .category-div
+        //-   span &#x1F4CA;
+        //-   span= `Category: ${post.category} `
+        //- .comments-div
+        //-   a(href= "#") &#x1F4AC; Comments
+        //-   - let date = post.dateUploaded.toLocaleString('en-in',{day:"numeric",month:"numeric",year:"numeric"})
+        //-   p(class='data-posted')= `- ${date}`

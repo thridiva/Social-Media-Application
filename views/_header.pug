@@ -1,0 +1,29 @@
+header.header
+  .header-div
+    .nav-div
+      div.nav-item
+        nav
+          a(href='/') &#127969; Home
+      div.nav-item
+        nav
+          a(href='#') &#128269; Search
+      div.nav-item
+        nav
+          a(href="/createPost")
+            .div-create-post ➕ Create Post
+    .user-name
+      if loggedUserName
+        span &#128100;
+        a(href="/account")
+          span #{loggedUserName}
+      //- else
+      //-   span Profile
+    .auth-div
+      if user
+        a(class='logout-now')
+          button.logout Logout
+      else
+        a(href="/login")
+          button.login-btn Login
+        a(href="/signup")
+          button.signup-btn-home Signup

@@ -1,0 +1,68 @@
+extend base
+
+block content
+  .profile-div
+    
+    .profile-user-settings-div
+      .profile-edit-button
+        .settings-div 🛠️
+      .profile-pic
+        img(src=`${data.profilePic}`)
+      
+        //- form.profile-settings-form.settings-form-div(action='/submit-form' method='POST') Without API
+        //- With API
+
+      .profile-form-div
+        form.profile-settings-form.settings-form-div.profile-form-div-id
+          .profile-name-setting-div
+            label.form-label(for='name' class='profile-form-name profile-text-heading' name="name" ) Name:
+            | 
+            input.profile-form-input(type='text' value=`${data.name}` required name='name' id='name')
+
+          .profile-email-settingss-div
+            label.form-label(for='email' class='profile-form-email profile-text-heading' name="email") Email:
+            | 
+            input.profile-form-input(type='email' value=`${data.email}` required name='email' id='email')
+
+          .profile-username-setting-div
+            label.form-label(for='userName' class='profile-form-username profile-text-heading') Username:
+            | 
+            input.profile-form-input(type='text' value=`${data.userName}` required name='userName' id='userName')
+          
+          .profile-about-setting-div
+            label.form-label(for='about' class='profile-form-about profile-text-heading') About:
+            | 
+            input.profile-form-input(type='text' value=`${data.about}` required name='about' id='about')
+          
+          .profile-submit-div
+            button.profile-submit-btn Save Settings
+
+    .profile-posts-div
+
+  .user-posts
+    h1.posts-heading Posts:
+    .posts-div-account-page
+      if data.posts.length!=0
+        each post,i in data.posts
+          .post-div.account-post-div
+            form.form-edit-posts.account-form(class=`form-num-${i+1} get-id-${i+1}` data-postId=`${post.id}`)
+              .post-btns-button
+                .post-settings-btn.post-edit-btn(class=`post-update-btn-${i+1}`) Save
+                .post-settings-btn.post-delete-btn.post-delete-button(class=`post-remove-btn-${i+1}`)
+                  svg.post-settings-btn.post-delete-button.bi.bi-trash(xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewBox='0 0 16 16' class=`post-remove-btn-${i+1}`)
+                    path.post-settings-btn.post-delete-button(d='M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z' class=`post-remove-btn-${i+1}`)
+                    path.post-settings-btn.post-delete-button(d='M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z' class=`post-remove-btn-${i+1}`)
+
+              .account-post-settings
+                label(for="post-name") Title:
+                input.account-post-edit-label(type="text" value=`${post.name}` class=`title-${i+1}`) 
+                
+              .account-post-settings
+                label(for="post-category") Category:
+                input.account-post-edit-label(type="text" value=`${post.category}` class=`category-${i+1}`)
+                
+              .account-post-settings
+                label(for="post-description") Description:
+                input.account-post-edit-label(type="text" value=`${post.description}` class=`description-${i+1}`)
+      else
+        p.no-posts No Posts !! Create A Post ➕

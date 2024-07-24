@@ -1,0 +1,54 @@
+extends base
+
+block content
+  .post-page-div
+    .page-post-content
+      .post-page-first
+        span(class='post-page-titles') Title:
+        span(class="post-page-font") #{post.name}
+
+      .post-page-desc
+        span(class='post-page-titles') Description:
+        | 
+        span(class='post-page-font') #{post.description}
+
+      //- .post-page-createdAt
+      //-   - let date = post.dateUploaded.toLocaleString('en-in',{day:"numeric",month:"numeric",year:"numeric"})
+      //-   span(class='post-page-titles') Posted Date:
+      //-   | 
+      //-   span(class='post-page-font') #{date}
+      
+      .post-page-category
+        span(class='post-page-titles') Category:
+        | 
+        span(class='post-page-font') #{post.category[0].toUpperCase() + post.category.slice(1)}
+
+    //- Interactions
+    .post-page-interactions
+      span(class='post-page-titles') Comments:
+      - if(post.interactions.length!=0)
+        each comment,i in post.interactions
+          .comment-box
+            .each-comment
+              p(class='comment-user-name') 💬 #{comment.user.name}:
+              p(class='comment-user-commented') #{comment.comment}
+      - else
+        | 
+        span No Comments
+        
+    //- Owner Details
+    .post-page-owner
+      p(class="post-page-about") About Post Owner:
+      .post-page-owner-name
+        p &#128100; Name:
+        span #{post.userCreated.name}
+      
+      .post-page-owner-username
+        p 🌌 Username:
+        span #{post.userCreated.userName}
+
+      //- .post-page-owner-link
+      //-   p &#x1F517; Profile Link:
+      //-   | 
+      //-   a(href=`/user/${post.userCreated.id}` target="_blank") Click Here
+      

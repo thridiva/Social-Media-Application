@@ -1,0 +1,18 @@
+extend base
+
+block content
+  div(class='container d-flex justify-content-center align-items-center login-main-div')
+    div(class='form-div-main p-4')
+      p(class='login-text') Login To Platform
+      div(class='mt-5')
+        form(class='w-100 form-li')
+          div(class='mb-3 d-flex justify-content-center')
+            label(class='form-label w-75 ')
+              | Email:
+              input(class='form-control mt-2' type='email' required='' id='email')
+          div(class='mb-3 d-flex justify-content-center')
+            label(class='form-label w-75')
+              | Password:
+              input(class='form-control mt-2' type='password' required='' id='password-take' autocomplete="on")
+          div(class='container d-flex justify-content-center')
+            input(type='submit' class='btn mt-3 btn-success')

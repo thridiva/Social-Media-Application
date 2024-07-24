@@ -1,0 +1,30 @@
+extend base
+
+block content
+  .signup-form.container
+    form.signup-form-div
+      p(class='signup-text') Create Your Account:
+        div(class='mt-5 form-div-first')
+          div(class='mb-3 form-div-inside')
+            label(class='form-label w-75 ') Name: (minimum 2 characters)
+              input(class='form-control mt-2' type='text' required id='name')
+            
+            label(class='form-label w-75 ') Username:
+              input(class='form-control mt-2' type='text' required id='userName')
+            
+            label(class='form-label w-75 ') Email:
+              input(class='form-control mt-2' type='email' required id='email')
+            
+            label(class='form-label w-75 ') Password: (minimum 8 characters)
+              input(class='form-control mt-2' type='password' required id='password' autocomplete="on")
+            
+            label(class='form-label w-75 ') Confirm Password: (minimum 8 characters)
+              input(class='form-control mt-2' type='password' required id='passwordConfirm' autocomplete="on")
+            
+            label(class='form-label w-75 ') About You: (minimum 2 characters)
+              input(class='form-control mt-2' type='text' required id='about')
+            
+            .signup-btn
+              button.submit-signup-btn Create Account 🔐
+
+            

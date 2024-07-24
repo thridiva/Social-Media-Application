@@ -1,0 +1,20 @@
+extend base
+
+block content
+  .create-post
+    h2.create-post-heading Create New Post
+    form.create-post-form
+      .create-post-title
+        label(for="name" class='create-post-name form-label') Title:
+        input.title-input.form-control(type='text' placeholder='Enter Post Name' name='name' required='' id='name') 
+      
+      .create-post-category
+        label(for="category" class='create-post-category form-label') Category:
+        input.title-input.form-control(type='text' placeholder='Enter Post Category' name='Category' required id='category') 
+      
+      .create-post-description
+        label(for="description" class='create-post-description form-label') Description:
+        input.title-input.form-control(type='text' placeholder='Enter Post Description' name='description' required id='description')
+
+      .create-post-submit
+        button.create-post-submit-btn Create Post ✅
