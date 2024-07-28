@@ -14,7 +14,7 @@ exports.getMainPage = (req, res, next) =>
       let posts = await query;
 
       //TODO Filter, Like in feed the currenct user posts should not be there
-      res.status(200).render("posts", { title: "AG", posts });
+      res.status(200).render("posts", { title: "Social_Media_Application", posts });
     },
     req,
     res,
